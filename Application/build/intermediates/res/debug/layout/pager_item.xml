@@ -26,6 +26,12 @@
         android:layout_marginTop="10dp"
         android:textSize="18sp"/>
 
+    <TextView
+        android:id="@+id/sensor_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
     <Button
         android:id="@+id/bt_sent"
         android:layout_width="wrap_content"

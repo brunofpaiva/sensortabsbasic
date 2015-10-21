@@ -25,13 +25,14 @@ int dimen margin_tiny 0x7f040009
 int dimen vertical_page_margin 0x7f040001
 int drawable ic_launcher 0x7f020000
 int drawable tile 0x7f020001
-int id bt_sent 0x7f090007
+int id bt_sent 0x7f090008
 int id item_subtitle 0x7f090005
 int id item_title 0x7f090006
-int id menu_toggle_log 0x7f090008
+int id menu_toggle_log 0x7f090009
 int id sample_content_fragment 0x7f090002
 int id sample_main_layout 0x7f090000
 int id sample_output 0x7f090001
+int id sensor_value 0x7f090007
 int id sliding_tabs 0x7f090003
 int id viewpager 0x7f090004
 int layout activity_main 0x7f030000

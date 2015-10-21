@@ -17,6 +17,9 @@
 
 package com.example.android.slidingtabsbasic;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -36,6 +39,9 @@ public class MainActivity extends FragmentActivity {
 
     // Whether the Log Fragment is currently shown
     private boolean mLogShown;
+
+    private SensorManager mSensorManager;
+    private Sensor mSensor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

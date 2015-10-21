@@ -1,7 +1,10 @@
 package com.example.android.common.adapter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -13,6 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.common.view.SlidingTabLayout;
+import com.example.android.pervasivesensorlib.PervasiveSensor;
+import com.example.android.pervasivesensorlib.sensors.AccelerometerSensor;
+import com.example.android.pervasivesensorlib.sensors.AmbientTemperatureSensor;
 import com.example.android.slidingtabsbasic.R;
 
 /**
@@ -73,21 +79,24 @@ public class SamplePagerAdapter extends PagerAdapter {
 
         // Retrieve a TextView from the inflated View, and update it's text
         final TextView title = (TextView) view.findViewById(R.id.item_title);
+        final TextView sensorValue = (TextView) view.findViewById(R.id.sensor_value);
         final Button sendEmailBt = (Button) view.findViewById(R.id.bt_sent);
 
 //      TODO
-//      PervasiveSensor sensor = whichSensorIs();
-        final String sensor = wichSensorIs(position);
+        final PervasiveSensor sensor = whichSensorIs(position);
+//        final String sensor = whichSensorIs(position);
 
 //      TODO
-//      title.setText(sensor.getName());
-        title.setText(sensor);
+        title.setText(sensor.getSensorName());
+        sensorValue.setText(sensor.readSensor());
+//        title.setText(sensor);
         sendEmailBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 //TODO
 //                sendEmail(sensor.getCurValue());
-                sendEmail("Sensor data goes here");
+                sendEmail(sensor.readSensor());
+                sensorValue.setText(sensor.readSensor());
             }
         });
 
@@ -103,50 +112,67 @@ public class SamplePagerAdapter extends PagerAdapter {
         container.removeView((View) object);
     }
 
-    private String wichSensorIs(final int position) {
+    private PervasiveSensor whichSensorIs(final int position) {
+        PervasiveSensor sensor = null;
         String sensorName = "No name";
         switch (position) {
             case 0:
-                sensorName = "TYPE_ACCELEROMETER";
+                sensor = new AccelerometerSensor();
+//                sensorName = "TYPE_ACCELEROMETER";
                 break;
             case 1:
-                sensorName = "TYPE_AMBIENT_TEMPERATURE";
+                sensor = new AmbientTemperatureSensor();
+//                sensorName = "TYPE_AMBIENT_TEMPERATURE";
                 break;
             case 2:
+                sensor = new AccelerometerSensor();
                 sensorName = "TYPE_GRAVITY";
                 break;
             case 3:
+                sensor = new AccelerometerSensor();
                 sensorName = "TYPE_GYROSCOPE";
                 break;
             case 4:
+                sensor = new AccelerometerSensor();
                 sensorName = "TYPE_LIGHT";
                 break;
             case 5:
+                sensor = new AccelerometerSensor();
                 sensorName = "TYPE_LINEAR_ACCELERATION";
                 break;
             case 6:
+                sensor = new AccelerometerSensor();
                 sensorName = "TYPE_MAGNETIC_FIELD";
                 break;
             case 7:
+                sensor = new AccelerometerSensor();
                 sensorName = "TYPE_ORIENTATION";
                 break;
             case 8:
+                sensor = new AccelerometerSensor();
                 sensorName = "TYPE_PRESSURE";
                 break;
             case 9:
+                sensor = new AccelerometerSensor();
                 sensorName = "TYPE_PROXIMITY";
                 break;
             case 10:
+                sensor = new AccelerometerSensor();
                 sensorName = "TYPE_RELATIVE_HUMIDITY";
                 break;
             case 11:
+                sensor = new AccelerometerSensor();
                 sensorName = "TYPE_ROTATION_VECTOR";
                 break;
             case 12:
+                sensor = new AccelerometerSensor();
                 sensorName = "TYPE_TEMPERATURE";
                 break;
+            default:
+                sensor = new AccelerometerSensor();
+                break;
         }
-        return sensorName;
+        return sensor;
     }
 
     private void sendEmail(String sensorData) {

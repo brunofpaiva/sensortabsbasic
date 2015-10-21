@@ -138,13 +138,14 @@ containing a value of this type.
         public static final int tile=0x7f020001;
     }
     public static final class id {
-        public static final int bt_sent=0x7f090007;
+        public static final int bt_sent=0x7f090008;
         public static final int item_subtitle=0x7f090005;
         public static final int item_title=0x7f090006;
-        public static final int menu_toggle_log=0x7f090008;
+        public static final int menu_toggle_log=0x7f090009;
         public static final int sample_content_fragment=0x7f090002;
         public static final int sample_main_layout=0x7f090000;
         public static final int sample_output=0x7f090001;
+        public static final int sensor_value=0x7f090007;
         public static final int sliding_tabs=0x7f090003;
         public static final int viewpager=0x7f090004;
     }
